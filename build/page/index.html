@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>title</title>
+    @@include('head.html')
+</head>
+<body>
+    @@include('header.html',{"index1":"active"})
+
+    <!--首页轮播开始-->
+    <div class="swiper-container index-swiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"> Slide1</div>
+            <div class="swiper-slide"> Slide2</div>
+            <div class="swiper-slide"> Slide3</div>
+        </div>
+        <div class="pagination"></div>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            var indexSwiper = $('.index-swiper').swiper({
+                loop: true,
+                autoplay: 5000,
+                autoplayDisableOnInteraction: false,
+                //其他设置
+                pagination: '.pagination',
+                paginationClickable: true,
+            });
+            $('.index-swiper').on('mouseenter', function () {
+                indexSwiper.stopAutoplay();
+            }).on('mouseleave', function () {
+                indexSwiper.startAutoplay();
+            });
+        })
+    </script>
+    <!--首页轮播结束-->
+
+    <!--内容开始-->
+    <div class="main-content">
+
+    </div>
+    <!--内容结束-->
+
+    @@include('footer.html')
+</body>
+</html>
